@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using ToDoListWebApi.Infrastructure;
 
 namespace ToDoListWebApi
 {
@@ -16,6 +17,9 @@ namespace ToDoListWebApi
         {
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
+
+            DependencyResolver.SetResolver(new CustomDependencyResolver());
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
