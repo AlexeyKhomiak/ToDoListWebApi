@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace ToDoListWebApi.Controllers
 {
-    public class ToDoListController : ApiController
+    public class ToDoListApiController : ApiController
     {
         TodoListRepository repo = new TodoListRepository();
         // GET api/<controller>
