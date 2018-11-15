@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinClient"
+             x:Class="XamarinClient.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="ToDoList"
+                   BackgroundColor="Black"
+                   TextColor="White"/>
+            <ListView x:Name="listViewTodoList" 
+                      RowHeight="50">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+
+                                </Grid.ColumnDefinitions>
+                                <StackLayout VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding TaskName}"/>
+                                    <Label Text="{Binding Notes}" />
+                                </StackLayout>
+                                
+                                <Switch IsToggled="{Binding Done}" Grid.Column="1" />
+                                <Button x:Name="btnDel"
+                                        Text="Delete" Grid.Column="2">
+                                </Button>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Vertical">
+            
+                <Entry x:Name="Title" 
+                   Placeholder="Title">
+                </Entry>
+            
+                <Entry x:Name="Description" 
+                   Placeholder="Description">
+                </Entry>
+                <Button Clicked="OnAdd"
+                        Text="Add Task">
+                </Button>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
